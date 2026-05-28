@@ -1,5 +1,5 @@
 import { EventEmitter } from 'node:events';
-import type { QueueJob } from '../types/index.js';
+import type { QueueJob } from '../types/index';
 
 export class MemoryQueue extends EventEmitter {
   private readonly jobs: QueueJob[] = [];

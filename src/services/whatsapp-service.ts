@@ -1,4 +1,4 @@
-import type { OutboundMessage } from '../types/index.js';
+import type { OutboundMessage } from '../types/index';
 
 export class WhatsAppService {
   private static readonly TIMEOUT_MS = 5_000;

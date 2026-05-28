@@ -1,10 +1,10 @@
 import { setTimeout as sleep } from 'node:timers/promises';
 import type { Logger } from 'pino';
-import { maskPhone } from '../helpers/mask-phone.js';
-import type { MemoryQueue } from '../queue/memory-queue.js';
-import type { LLMService } from '../services/llm-service.js';
-import type { WhatsAppService } from '../services/whatsapp-service.js';
-import type { QueueJob } from '../types/index.js';
+import { maskPhone } from '../helpers/mask-phone';
+import type { MemoryQueue } from '../queue/memory-queue';
+import type { LLMService } from '../services/llm-service';
+import type { WhatsAppService } from '../services/whatsapp-service';
+import type { QueueJob } from '../types/index';
 
 export class LLMWorker {
   private static readonly MAX_ATTEMPTS = 3;
