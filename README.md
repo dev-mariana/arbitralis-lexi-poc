@@ -31,7 +31,7 @@ cp .env.example .env
 ```
 PORT=3000
 NODE_ENV=development
-WHATSAPP_MOCK_URL=http://localhost:3000
+WHATSAPP_MOCK_URL=http://localhost:3000/api
 ```
 
 > `WHATSAPP_MOCK_URL` aponta para a própria instância local — o endpoint `/api/send-message` simula a API do WhatsApp.
