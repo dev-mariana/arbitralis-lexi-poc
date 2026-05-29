@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import { queue } from '../container';
+import { queue } from '../configs';
 import { WebhookPayloadSchema } from '../types/index';
 
 export async function webhookController(

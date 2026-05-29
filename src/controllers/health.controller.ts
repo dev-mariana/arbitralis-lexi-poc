@@ -1,5 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import { queue, worker } from '../container';
+import { queue, worker } from '../configs';
 
 export async function healthController(
   _request: FastifyRequest,

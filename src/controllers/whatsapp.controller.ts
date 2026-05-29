@@ -1,5 +1,6 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { OutboundMessageSchema } from '../types/index';
+import logger from '@/configs';
 
 export async function whatsAppController(
   request: FastifyRequest,
@@ -8,7 +9,7 @@ export async function whatsAppController(
   try {
     const { to, correlationId } = OutboundMessageSchema.parse(request.body);
 
-    request.log.info({ to, correlationId }, 'Outbound message received');
+    logger.info({ to, correlationId }, 'Outbound message received');
 
     reply.status(200).send({ delivered: true });
   } catch (error) {
