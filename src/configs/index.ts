@@ -6,8 +6,8 @@ import { LLMWorker } from '../workers/llm-worker';
 import 'dotenv/config';
 
 const logger = pino();
-const llmService = new LLMService();
-const whatsAppService = new WhatsAppService(
+export const llmService = new LLMService();
+export const whatsAppService = new WhatsAppService(
   process.env.WHATSAPP_MOCK_URL ?? 'http://localhost:3000',
 );
 
