@@ -1,10 +1,10 @@
 import { setTimeout as sleep } from 'node:timers/promises';
+import type Logger from '@/configs';
 import { maskPhone } from '../helpers/mask-phone';
 import type { MemoryQueue } from '../queue/memory-queue';
 import type { LLMService } from '../services/llm-service';
 import type { WhatsAppService } from '../services/whatsapp-service';
 import type { QueueJob } from '../types/index';
-import Logger from '@/configs'; 
 
 export class LLMWorker {
   private static readonly MAX_ATTEMPTS = 3;
@@ -19,8 +19,7 @@ export class LLMWorker {
     private readonly llmService: LLMService,
     private readonly whatsAppService: WhatsAppService,
     private readonly logger: typeof Logger,
-  ) {
-  }
+  ) {}
 
   start(): void {
     this.running = true;
@@ -77,7 +76,7 @@ export class LLMWorker {
         if (isLastAttempt) {
           this.failed++;
           this.logger.error(logCtx, 'Job discarded after max retries');
-          
+
           return;
         }
 

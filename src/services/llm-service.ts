@@ -18,8 +18,7 @@ export class LLMService {
 
   private randomDelay(): Promise<void> {
     const ms =
-      LLMService.MIN_DELAY_MS +
-      Math.random() * (LLMService.MAX_DELAY_MS - LLMService.MIN_DELAY_MS);
+      LLMService.MIN_DELAY_MS + Math.random() * (LLMService.MAX_DELAY_MS - LLMService.MIN_DELAY_MS);
 
     return sleep(ms);
   }

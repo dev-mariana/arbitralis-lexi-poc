@@ -1,5 +1,5 @@
-import type { FastifyReply, FastifyRequest } from 'fastify';
 import logger from '@/configs';
+import type { FastifyReply, FastifyRequest } from 'fastify';
 import { ErrorHandler } from '../errors/error-handler';
 import { OutboundMessageSchema } from '../types/index';
 

@@ -1,8 +1,8 @@
+import pino from 'pino';
 import { MemoryQueue } from '../queue/memory-queue';
 import { LLMService } from '../services/llm-service';
 import { WhatsAppService } from '../services/whatsapp-service';
 import { LLMWorker } from '../workers/llm-worker';
-import pino from 'pino';
 import 'dotenv/config';
 
 const logger = pino();

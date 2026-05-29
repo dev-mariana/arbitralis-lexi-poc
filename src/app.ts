@@ -1,6 +1,7 @@
 import Fastify, { type FastifyInstance } from 'fastify';
-import { registerRoutes } from './routes/index';
 import 'dotenv/config';
+import { errorHandlerMiddleware } from './errors/error-handler.middleware';
+import { registerRoutes } from './routes/index';
 
 export const app: FastifyInstance = Fastify({
   logger: {
@@ -8,4 +9,5 @@ export const app: FastifyInstance = Fastify({
   },
 });
 
+app.setErrorHandler(errorHandlerMiddleware);
 app.register(registerRoutes, { prefix: '/api' });
