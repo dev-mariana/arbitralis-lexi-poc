@@ -1,5 +1,6 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { queue } from '../configs';
+import { ErrorHandler } from '../errors/error-handler';
 import { WebhookPayloadSchema } from '../types/index';
 
 export async function webhookController(
@@ -13,6 +14,6 @@ export async function webhookController(
 
     reply.status(202).send({ received: true, messageId });
   } catch (error) {
-    throw error;
+    throw new ErrorHandler(400, error instanceof Error ? error.message : 'Invalid payload');
   }
 }

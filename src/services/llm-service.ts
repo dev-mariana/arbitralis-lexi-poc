@@ -1,4 +1,5 @@
 import { setTimeout as sleep } from 'node:timers/promises';
+import { ErrorHandler } from '../errors/error-handler';
 
 export class LLMService {
   private static readonly MIN_DELAY_MS = 2_000;
@@ -9,7 +10,7 @@ export class LLMService {
     await this.randomDelay();
 
     if (Math.random() < LLMService.FAILURE_RATE) {
-      throw new Error('LLM timeout');
+      throw new ErrorHandler(503, 'LLM timeout');
     }
 
     return `Resposta simulada para: "${body}"`;

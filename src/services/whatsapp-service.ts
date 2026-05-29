@@ -1,3 +1,4 @@
+import { ErrorHandler } from '../errors/error-handler';
 import type { OutboundMessage } from '../types/index';
 
 export class WhatsAppService {
@@ -24,7 +25,8 @@ export class WhatsAppService {
 
     if (!response.ok) {
       const detail = await response.text().catch(() => '');
-      throw new Error(
+      throw new ErrorHandler(
+        502,
         `Unexpected status from mock-whatsapp: ${response.status}${detail ? ` — ${detail}` : ''}`,
       );
     }

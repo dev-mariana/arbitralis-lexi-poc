@@ -1,5 +1,6 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { queue, worker } from '../configs';
+import { ErrorHandler } from '../errors/error-handler';
 
 export async function healthController(
   _request: FastifyRequest,
@@ -10,6 +11,6 @@ export async function healthController(
 
     reply.status(200).send({ queueSize: queue.size, processed, failed });
   } catch (error) {
-    throw error;
+    throw new ErrorHandler(500, 'Internal server error');
   }
 }
