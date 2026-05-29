@@ -1,5 +1,6 @@
 import Fastify, { type FastifyInstance } from 'fastify';
 import { registerRoutes } from './routes/index';
+import 'dotenv/config';
 
 export const app: FastifyInstance = Fastify({
   logger: {

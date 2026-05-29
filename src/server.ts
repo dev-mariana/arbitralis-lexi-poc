@@ -1,7 +1,7 @@
 import { app } from './app';
 import { worker } from './configs';
 
-const port = Number(process.env['PORT'] ?? 3000);
+const port = Number(process.env.PORT ?? 8080);
 
 async function stop(): Promise<void> {
   app.log.info('Graceful shutdown initiated');
