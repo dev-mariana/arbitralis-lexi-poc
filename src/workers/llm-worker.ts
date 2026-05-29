@@ -1,6 +1,6 @@
 import { setTimeout as sleep } from 'node:timers/promises';
-import type { Logger } from 'pino';
 import { maskPhone } from '../helpers/mask-phone';
+import type { ILogger } from '../interfaces/logger.interface';
 import type { MemoryQueue } from '../queue/memory-queue';
 import type { LLMService } from '../services/llm-service';
 import type { WhatsAppService } from '../services/whatsapp-service';
@@ -18,7 +18,7 @@ export class LLMWorker {
     private readonly queue: MemoryQueue,
     private readonly llmService: LLMService,
     private readonly whatsAppService: WhatsAppService,
-    private readonly logger: Logger,
+    private readonly logger: ILogger,
   ) {}
 
   start(): void {
